@@ -1,0 +1,17 @@
+The network lab of the ICS course   ----A chat room
+        Author: Wang, Chen, Undergraduate of school of software, Fudan University
+                December 28th, 2018
+
+This lab is based on the network chapter of the CS:APP 3e text book and we need to implement a chat room that can compile and run on Linux system using C language.
+
+This version of implementation adopts C/S architecture and there are two executable objects can be compiled and executed, namely client and server.
+
+The server uses the localhost network loop to send and receive packages with the client. The port of the server is defined as 8000. When executing this application, you ought to execute the server application first, seeing the "Prepared to get connected..." words indicates that the server is ready for the clients to connect to.
+
+Then you can start at most LISTENQ number of clients. Here this constant is defined as 1024, adhering to the convention of the CS:APP textbook. For the first user that want to log in, the password is 2019. Every time a new user comes to the chat room, he is given a randomly generated pass code with which this user can invite others into the chat room. A new user can only log in to the chat room with correct password provided. However, there is no restriction from whom the pass code is retrieved from. That is, all the generated pass codes have the same effect.
+
+There are two modes in the chatting room. The first is private chat. Only the user with specified name can receive the message. If the user with the specified name is not online, sending private message will fail and an error message will appear. The second method is public chat. There is no need to input a receiver's name and all the online users will be able to receive the message.
+
+A client process disconnects with the server when it logs out. And the process will terminate if the user then chooses the exit option.
+
+The server can be turned off from an administrator client. The username of the administrator is admin,  whose password is either 2019 or any inviting code. All the client will be forced terminated when the server shuts.
